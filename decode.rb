@@ -8,8 +8,13 @@ class MorseCode
   def self.decode_char(char)
     return ' ' if char == ' '
 
-    @@morse.key(char)
+    @morse.key(char)
+  end
+
+  def self.decode_word(word)
+    word.split.map { |char| decode_char(char) }.join
   end
 end
 
 puts(MorseCode.decode_char('--'))
+puts(MorseCode.decode_word('-- -.--'))
